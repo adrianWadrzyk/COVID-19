@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+ <html> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="header"> 
+            <h1 class="header__content"> COVID-19 statistics</h1>
+        </header>
+        <main>
+            <section class="main_stats">
+                <h3 class="section__header">Global statistics</h3>
+                
+                <div class="box" id="total_deaths">
+                    <h3 class="box__header">Total deaths:</h3>
+                    <p class="stats stats--deaths"></p>
+                </div>
+                <div class="box" id="total_infected">
+                    <h3 class="box__header">Total infected: </h3>
+                    <p class="stats stats--infected"></p>
+                </div>
+                <div class="box" id="total_recovered">
+                    <h3 class="box__header">Total recovered:</h3>
+                    <p class="stats stats--recovered"></p>
+                </div>
+            </section>
+        </main>
+            <form> 
+                <input type="text" id="search" class="search" list="datalist">
+                <datalist class="datalist" id="datalist"></datalist>
+            </form>
+            <section class="chart" id="chart">
+
+            </section>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+        <script src="autoFill.js" async defer type="module"></script>
+        <script src="chart.js" async defer type="module"></script>
+        <script src="globalData.js" async defer type="module"></script>
+        <script src="staticforCountry.js" async defer type="module"></script>
+
+    </body>
+</html>
