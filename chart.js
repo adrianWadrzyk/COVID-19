@@ -1,60 +1,67 @@
 
-var dane = [1,2,3,4,5,6,7,8]
+const ctx = document.getElementById("chart").getContext("2d");
 
-const convertData = (data) => { 
-  
- const confirmed = [], active = [], days=[];
 
-  data.forEach(element => {
+const createCountryChart = (data) => {
+  const confirmed = [],
+    active = [],
+    days = [];
+
+  data.forEach((element) => {
     active.push(element.Active);
-    confirmed.push(element.Confirmed); 
- });
+    confirmed.push(element.Confirmed);
+  });
 
-  for (let i=0; i < data.length; i++)
-        days[i] = i;
+  for (let i = 0; i < data.length; i++) days[i] = i;
 
-
-    const config = { 
-      type: 'line', 
-      data: { 
-        labels: days, 
-        datasets: [{
-          label: 'Confirmed',
+  const config = {
+    type: "line",
+    data: {
+      labels: days,
+      datasets: [
+        {
+          label: "Confirmed",
           data: confirmed,
-          borderColor: 'red'
-        }, {
-          label: 'Active',
+          borderColor: "red",
+        },
+        {
+          label: "Active",
           data: active,
           borderColor: "blue",
-        }]
-      }, 
-      options: { 
-        responsive: true, 
-        title: { 
-          display: true, 
-          text: ' chart multiple'
-        }, 
-        scales:  {
-          yAxes: [{
-            ticks: { 
-              stepSize: 2500
-            }
-          }]
-        }
-      }
-    };
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      title: {
+        display: true,
+        text: `Data for ${data[0].Country}`
+      },
+    },
+  };
 
-    createChart(config);
+   countryChart = new Chart(ctx, config);
 };
 
+const createGlobalChart = (death, infected, recovered)  => {  
 
-const createChart = (config) => { 
-  var ctx = document.getElementById('chart').getContext('2d');
-  let chart = new Chart (ctx, config);
+  const config = { 
+    type: "pie", 
+    data: { 
+      datasets: [{
+        data: [death, infected, recovered],
+        backgroundColor: ["Red", "Yellow", "Green"],
+        hoverBackgroundColor: "none"
+      }],
+      labels: ["Death", "Infected", "Recovered"], 
+ 
+    }, 
+    options : { 
+      responsive : true
+    }
+  }
+
+  new Chart(ctx, config);
 }
 
-export default convertData;
-
-
-
-
+export default (createCountryChart, createGlobalChart);

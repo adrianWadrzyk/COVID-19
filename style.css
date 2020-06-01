@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .header { 
@@ -16,9 +17,6 @@
 .header__content { 
     text-align: center;
     line-height: 10vh;
-}
-
-.main_stats { 
 }
 
 .section__header { 
@@ -46,8 +44,23 @@
 .box__header { 
     font-size: 1.5em;
 }
+
 .stats { 
     padding-top: 10px;
     font-size: 1.1em;
     font-weight: bolder;
+}
+
+.form { 
+    margin: 0 auto;
+    text-align: center;
+}
+
+.search { 
+    padding-left: 10px;
+    width: auto;
+    height: 4vh;
+}
+.ui-helper-hidden-accessible { 
+    visibility: hidden;
 }

@@ -14,43 +14,19 @@ getCountriesList();
 
 function createTableCountries(data) {
   const countriesName = [];
+
   data.forEach((element) => {
     countriesName.push(element.Country);
   });
+
   countriesName.sort();
-  let search = document.getElementById("search");
-  search.addEventListener("keyup", function () {
-    autoComplete(countriesName);
-  });
+  
+    $('#search').autocomplete({
+      source : countriesName,
+      autoFocus : true, 
+      select: function(e, ui) {
+        getCountryData(ui.item.value);
+      }
+   });
 }
-
-const autoComplete = (countries) => {
-
-  let search = document.getElementById("search");
-  const regforSearchValue = /^\w+$/i;
-  let tmp = search.value;
-  const datalist = document.getElementById("datalist");
-  datalist.innerHTML = "";
-
-  if (regforSearchValue.test(tmp)) {
-    const regForCountry = new RegExp(`^${tmp}`, "i");
-    for (const country of countries) {
-      if (regForCountry.test(country)) fillDatalist(country, datalist);
-    }
-    if (tmp == datalist.firstChild.value) {
-        datalist.innerHTML = "";
-        getCountryData(tmp);
-    }
-  } else {
-    console.log("dupa");
-  }
-};
-
-const fillDatalist = (country, list) => {
-  let option = document.createElement("option");
-  option.value = country;
-  list.appendChild(option);
-};
-
-
 
