@@ -1,4 +1,5 @@
-import getCountryData from "./staticforCountry.js";
+
+import {getCountryData} from './staticforCountry.js';
 
 async function getCountriesList() {
   try {

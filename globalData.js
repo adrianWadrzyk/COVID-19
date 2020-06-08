@@ -1,4 +1,4 @@
-import convertGlobalChart from './chart.js'; 
+import {createGlobalChart} from './chart.js';
 
 async function getGlobalData() {
   try {
@@ -20,7 +20,7 @@ function writeGlobalData(data) {
   total_infected.innerText = `${global.TotalConfirmed} (+ ${global.NewConfirmed})`;
   total_recovered.innerText = `${global.TotalRecovered} (+ ${global.NewRecovered})`;
 
-  convertGlobalChart(global.TotalDeaths, global.TotalConfirmed, global.TotalRecovered);
+  createGlobalChart(global.TotalDeaths, global.TotalConfirmed, global.TotalRecovered);
 }
 
 window.addEventListener("load", getGlobalData());

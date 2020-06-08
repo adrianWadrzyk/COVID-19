@@ -1,8 +1,12 @@
 
 const ctx = document.getElementById("chart").getContext("2d");
+var chart =[];
 
+export const createCountryChart = (data) => {
+  chart[0].destroy();
 
-const createCountryChart = (data) => {
+  console.log("W ContryChart");
+  
   const confirmed = [],
     active = [],
     days = [];
@@ -40,11 +44,10 @@ const createCountryChart = (data) => {
     },
   };
 
-   countryChart = new Chart(ctx, config);
+   chart[0] = new Chart(ctx, config);
 };
 
-const createGlobalChart = (death, infected, recovered)  => {  
-
+export const createGlobalChart = (death, infected, recovered)  => {  
   const config = { 
     type: "pie", 
     data: { 
@@ -59,9 +62,9 @@ const createGlobalChart = (death, infected, recovered)  => {
     options : { 
       responsive : true
     }
-  }
+  };
 
-  new Chart(ctx, config);
-}
+  chart[0] = new Chart(ctx, config);
+};
 
-export default (createCountryChart, createGlobalChart);
+
