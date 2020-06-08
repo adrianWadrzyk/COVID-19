@@ -2,9 +2,8 @@
 const ctx = document.getElementById("chart").getContext("2d");
 var chart =[];
 
-export const createCountryChart = (data) => {
+ const createCountryChart = (data) => {
   chart[0].destroy();
-
   console.log("W ContryChart");
   
   const confirmed = [],
@@ -47,7 +46,7 @@ export const createCountryChart = (data) => {
    chart[0] = new Chart(ctx, config);
 };
 
-export const createGlobalChart = (death, infected, recovered)  => {  
+ const createGlobalChart = (death, infected, recovered)  => {  
   const config = { 
     type: "pie", 
     data: { 
@@ -67,4 +66,4 @@ export const createGlobalChart = (death, infected, recovered)  => {
   chart[0] = new Chart(ctx, config);
 };
 
-
+export { createCountryChart, createGlobalChart, chart};

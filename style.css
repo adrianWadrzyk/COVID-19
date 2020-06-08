@@ -9,6 +9,8 @@
     overflow-x: hidden;
 }
 
+
+
 .header { 
     width: 100vw;
     height: 10vh;
@@ -35,6 +37,7 @@
     align-items: center;
     justify-content: center;
     display: flex;
+    background-color: whitesmoke;
 }
 
 .box:nth-of-type(1)  {
@@ -61,6 +64,16 @@
     width: auto;
     height: 4vh;
 }
+
 .ui-helper-hidden-accessible { 
     visibility: hidden;
+}
+
+@media only screen and (min-width:1200px)
+{
+    .canvas_conteiner { 
+        width: 50%;
+        height: 100%;
+        margin: 5vh auto 0;
+    }
 }

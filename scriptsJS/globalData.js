@@ -11,7 +11,7 @@ async function getGlobalData() {
 }
 
 function writeGlobalData(data) {
-  const global = data["Global"];
+  const global = data.Global;
   const total_deaths = document.querySelector(".stats--deaths");
   const total_infected = document.querySelector(".stats--infected");
   const total_recovered = document.querySelector(".stats--recovered");
