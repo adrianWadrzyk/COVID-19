@@ -23,11 +23,20 @@ function createTableCountries(data) {
   countriesName.sort();
   
     $('#search').autocomplete({
-      source : countriesName,
+      source : function( request, response ) {
+        var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+        response( $.grep( countriesName, function( item ){
+            return matcher.test( item );
+        }) );
+    },
       autoFocus : true, 
+      minLength: 3,
       select: function(e, ui) {
         getCountryData(ui.item.value);
-      }
+      }, 
+    classes: { 
+      "ui-autocomplete" : "ui_class"
+    }
    });
 }
 

@@ -9,8 +9,6 @@
     overflow-x: hidden;
 }
 
-
-
 .header { 
     width: 100vw;
     height: 10vh;
@@ -54,26 +52,53 @@
     font-weight: bolder;
 }
 
-.form { 
-    margin: 0 auto;
-    text-align: center;
-}
 
 .search { 
     padding-left: 10px;
-    width: auto;
+    width: 15vw;
     height: 4vh;
+    margin-left: 42.5vw;
 }
 
 .ui-helper-hidden-accessible { 
     visibility: hidden;
 }
 
+.ui_class { 
+    background-color: black;
+    color:white;
+    z-index: 100;
+    width: 15vw;
+}
+
+
 @media only screen and (min-width:1200px)
-{
+{   
+    .main_stats { 
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .section__header { 
+        width: 100%;
+    }
+
+    .box { 
+        width: 20%;
+        flex-direction: column;
+    }
+
+    .box:nth-of-type(1)  {
+        margin: 20px auto;    
+    }
+
+    .search { 
+        margin-top: 5vh;
+    }
+
     .canvas_conteiner { 
         width: 50%;
         height: 100%;
-        margin: 5vh auto 0;
+        margin: 2vh auto 0;
     }
 }
